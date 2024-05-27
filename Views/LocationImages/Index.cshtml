@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LocationSearchApplicationAPI.Models.LocationImageVM>
+
+@{
+    ViewBag.Title = "Location Images";
+
+}
+<h2>Location Images</h2>
+
+@{
+    var isSaved = (Context.Request.QueryString.Value.Contains("lat"));
+    if (!isSaved)
+    {
+        <p>
+            @Html.ActionLink("Back to List", "Index", "LocationClient")
+        </p>
+
+    }
+    else         
+    {
+        <p>
+            @Html.ActionLink("Back to List", "Index", "LocationClient",new { isSavedData = isSaved })
+        </p>
+
+    }
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Display("Venue")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+                <label>@item.VenueName</label>
+        </td>
+        @if (item.Image!=null)
+        {
+            <td>  
+                <img src="@Url.Action("GetImage", "LocationImages", new { ImageId = item.ImageId })" width="200" height="200" alt="No image available" />           
+             </td>       
+        }
+        else
+        {
+            <td></td>
+        }
+      
+    </tr>
+}
+</table>
+

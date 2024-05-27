@@ -1,0 +1,14 @@
+﻿
+
+-- Copy Contents of the solution folder onto a folder on your windows machine eg. c:\development\locationSerachApi 
+-- Open solution in Visual Studio 2022 
+-- Build Web Project 
+-- Go into AppSettings file and set the appropriate database connectionstring
+-- Gointo Package manager console and run : DOTNET EF Database update
+-- Build Web Project and Run 
+-- Im using Microsoft.ASPNetCore.Identity so in order to setup a user simply register a user with an email and a password. 
+-- Use this email and password to login 
+-- Once logged in , there a two functional menu options i.e Popular Venue Search, Saved Venue Search
+	-- The first option uses the external Image and Location services to retrieve information for a user 
+	and store the search in the db 
+	-- The second option simply restrieves previous search information for the user . 
